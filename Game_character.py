@@ -76,27 +76,23 @@ class Castle(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (150, 150))
         self.rect = self.image.get_rect()
         screen.blit(self.image, (0, 0))
-        self.lvl = 1
         self.rect.x = 750
         self.rect.y = 75
 
     def update(self, *args):
-        if self.lvl == 1:
-            pass
-        elif self.lvl == 2:
+        if len(game_data["ores"]) == 7:
             self.image = load_image("Castle 2 lvl.png")
             self.image = pygame.transform.scale(self.image, (200, 200))
-        elif self.lvl == 3:
+
+        elif len(game_data["ores"]) == 4:
             self.image = load_image("Castle 3 lvl.png")
             self.image = pygame.transform.scale(self.image, (255, 255))
             self.rect.x = 725
-        elif self.lvl == 4:
+
+        elif len(game_data["ores"]) == 1:
             self.image = load_image("Castle 4 lvl.png")
             self.image = pygame.transform.scale(self.image, (300, 300))
             self.rect.x = 675
-
-    def quest(self):
-        pass
 
 
 class Ore(pygame.sprite.Sprite):
